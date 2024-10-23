@@ -3,13 +3,13 @@ logging.basicConfig(level=logging.INFO, format='%(message)s')
 
 def encrypt(email="abc012"):
     """
-    TODO: What is the objective? 
+    TODO: The objective is to create a function that can encrypt a 6 character long email. 
 
     Args:
-        TODO: what arguments and data types are expected? (i.e., email)
+        TODO:  The argument is an email that is a string. 
 
     Returns:
-        TODO: what varibale and data types are being returned?   
+        TODO: retVal is going to be returned and it is a string data type  
     """
     output = "" 
     len_flag = len(email) != 6
@@ -18,8 +18,8 @@ def encrypt(email="abc012"):
     # i.e., 
     #     A = email[:3] (check first half)
     #     B = email[3:] (check second half)
-    #     enum_flag = A or B
-    anum_flag = email[:3] != 'abc' or email[3:] != '012' 
+    #     anum_flag = A or B
+    anum_flag = not((email[:3]).isalpha()) or not((email[3:]).isdecimal()) 
 
     if len_flag:                         # NOTE: here we provide input validation on length
         output = "Length check failed\n"
@@ -33,14 +33,18 @@ def encrypt(email="abc012"):
         return output     
         
     # TODO: fix line below, process our string into a list
-    email_lst = ["a", "b", "c", "0", "1", "2"]
+    email_lst = list(email)
         
     # TODO: complete line(s) below, convert EACH new element into a string
-    new_ascii = ord(email_lst[0]) + 3    # NOTE: here we extract and update element at 0 
-    email_lst[0] = chr(new_ascii)        # NOTE: here we convert our ASCII into string
+    new_ascii = []
+    for elem in email_lst: # NOTE: here we extract and update element at 0 
+        new_ascii.append(ord(elem) + 3)
+        
+    for index, elem in enumerate(new_ascii):  # NOTE: here we convert our ASCII into string
+        email_lst[index] = chr(elem)  
         
     # TODO: fix line below, convert list into a string
-    email_str = "dbc012"
+    email_str = "".join(email_lst)
 
     # keep all updates in the retVal (str) variablei
     # i.e.,
