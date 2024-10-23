@@ -1,6 +1,8 @@
 import logging
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 
+# Axel Jackson 10/23/24 CSC-138 
+ 
 def encrypt(email="abc012"):
     """
     TODO: The objective is to create a function that can encrypt a 6 character long email. 
