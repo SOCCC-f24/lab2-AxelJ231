@@ -65,7 +65,7 @@ def decrypt(email="def345"):
         TODO: The returned variable will be retVal. It's data type is a string.   
     """
     # input validation
-     output = "" 
+    output = "" 
     len_flag = len(email) != 6
     # TODO: fix line below and, implement functionality rather than literals
     # keep all updates in the anum_flag (bool) variable
